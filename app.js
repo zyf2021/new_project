@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-//db.sequelize.sync()
+
 
 
 app.get('/', function(req, res){
@@ -20,6 +20,8 @@ app.get('/', function(req, res){
         message:'Working'
     })
 })
+
+
 
 app.listen(PORT, function(){
     console.log(`Server has been started ${PORT}`)
