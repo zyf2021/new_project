@@ -21,7 +21,7 @@ app.get('/', function(req, res){
     })
 })
 
-
+require("./routes/main.routes")(app)
 
 app.listen(PORT, function(){
     console.log(`Server has been started ${PORT}`)
