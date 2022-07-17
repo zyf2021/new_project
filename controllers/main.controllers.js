@@ -14,7 +14,7 @@ exports.generate = (req, res) => {
 exports.generate_between = (req, res) => {
     if ((!req.body.min)&&(!req.body.max)){
         res.status(400).send({
-            message:"Content empty!"
+            message:"Укажите минимальное и мааксимальное число"
         })
         return;
     }
@@ -27,5 +27,20 @@ exports.generate_between = (req, res) => {
     }
     catch(e){
       res.status(500).send({message:e.message});
+    }
+}
+exports.generate_sequence = (req, res) => {
+    if(!req.body.sequence_lenght){
+        res.status(400).send({
+            message:"Укажите длину последовательности"
+        });
+        return;
+    }
+    try{
+        const sequence_lenght = req.body.sequence_lenght;
+        
+    }
+    catch(e){
+        res.status(500).send({message:e.message});
     }
 }
