@@ -37,8 +37,16 @@ exports.generate_sequence = (req, res) => {
         return;
     }
     try{
+        const min = Number(req.body.min);
+        const max = Number(req.body.max);
         const sequence_lenght = req.body.sequence_lenght;
-        
+        var random_number = 0;
+        var random_number_to_string = "";
+        for (var i = 0; i<sequence_lenght; i++){
+            random_number = Math.floor(Math.random()*(max-min))+min;
+            random_number_to_string = random_number_to_string+" "+random_number.toString();
+        }
+        res.send(random_number_to_string);
     }
     catch(e){
         res.status(500).send({message:e.message});
