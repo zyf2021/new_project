@@ -15,5 +15,12 @@ exports.calc_age_by_date_birth = (req, res) => {
     catch(e){
         res.status(500).send({message:e.message});
     }
-
+}
+exports.calc_difference_between_ages = (req, res) => {
+    if ((!req.body.date_birth_1)&&(!req.body.date_birth_2)){
+        res.status(400).send({
+            message: "Укажите даты рождения"
+        });
+        return;
+    }
 }
