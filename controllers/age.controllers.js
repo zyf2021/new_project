@@ -23,4 +23,10 @@ exports.calc_difference_between_ages = (req, res) => {
         });
         return;
     }
+    try{
+
+    }
+    catch(e){
+        res.status(500).send({message:e.message})
+    }
 }
