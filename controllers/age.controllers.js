@@ -8,7 +8,7 @@ exports.calc_age_by_date_birth = (req, res) => {
     try {
         var date_birth = new Date(req.body.date_birth);
         var current_date = new Date();
-        var age = current_date - date_birth;
+        var age = current_date - date_birth;//обработка для будующей даты
         console.log(Math.floor(age/1000/60/60/24/365));///1000/60/60/24/365
         res.send(age.toString());
     }
@@ -24,8 +24,14 @@ exports.calc_difference_between_ages = (req, res) => {
         return;
     }
     try{
-
-    }
+        var date_birth_1 = new Date(req.body.date_birth_1);
+        var date_birth_2 = new Date(req.body.date_birth_2);
+        if (date_birth_1>date_birth_2){
+            var difference_between_ages_ms = date_birth_1 - date_birth_2;
+        }
+        //var difference_between_ages_ms = 
+        res.send(difference_between_ages_ms.toString());
+    }   
     catch(e){
         res.status(500).send({message:e.message})
     }
