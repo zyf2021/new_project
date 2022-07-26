@@ -27,11 +27,12 @@ exports.calc_difference_between_ages = (req, res) => {
         var date_birth_1 = new Date(req.body.date_birth_1);
         var date_birth_2 = new Date(req.body.date_birth_2);
         if (date_birth_1>date_birth_2){
-            var difference_between_ages_ms = date_birth_1 - date_birth_2;
+            
         }
         else{
             var difference_between_ages_ms = date_birth_2 - date_birth_1 ;
         }
+        var difference_between_ages_ms = date_birth_1 - date_birth_2;
         //var difference_between_ages_ms = 
         res.send(difference_between_ages_ms.toString());
     }   
