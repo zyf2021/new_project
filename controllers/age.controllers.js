@@ -26,15 +26,10 @@ exports.calc_difference_between_ages = (req, res) => {
     try{
         var date_birth_1 = new Date(req.body.date_birth_1);
         var date_birth_2 = new Date(req.body.date_birth_2);
-        if (date_birth_1>date_birth_2){
-            
-        }
-        else{
-            var difference_between_ages_ms = date_birth_2 - date_birth_1 ;
-        }
-        var difference_between_ages_ms = date_birth_1 - date_birth_2;
-        //var difference_between_ages_ms = 
+        var difference_between_ages_ms = Math.floor(Math.abs(date_birth_1.getTime() - date_birth_2.getTime())/1000/60/60/24/365);
+        
         res.send(difference_between_ages_ms.toString());
+
     }   
     catch(e){
         res.status(500).send({message:e.message})
