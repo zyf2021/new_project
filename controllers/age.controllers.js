@@ -8,7 +8,7 @@ exports.calc_age_by_date_birth = (req, res) => {
     try {
         var date_birth = new Date(req.body.date_birth);
         var current_date = new Date();
-        var age = current_date - date_birth;//обработка для будующей даты
+        var age = Math.abs(current_date - date_birth);//обработка для будующей даты
         console.log(Math.floor(age/1000/60/60/24/365));///1000/60/60/24/365
         res.send(age.toString());
     }
